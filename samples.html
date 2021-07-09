@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>24-labs samples</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="jquery.live-preview.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>24-labs samples</h1>
+		<section>
+			<h2>data-24-bind</h2>
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<div class="form-group">
+								<label for="lname">Last Name</label>
+								<input type="text" class="form-control" id="lname" />
+							</div>
+							<div class="form-group">
+								<label for="fname">First Name</label>
+								<input type="text" class="form-control" id="fname" />
+							</div>
+							<div class="form-group">
+								<label for="age">Age</label>
+								<input type="text" class="form-control" id="age" />
+							</div>
+							<div class="alert alert-warning">
+								<span>My name is <strong data-24-bind="#fname #lname (#age)"></strong></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<div class="form-group">
+								<label for="first">First</label>
+								<input type="text" class="form-control" id="first" />
+							</div>
+							<div class="form-group">
+								<label for="second">Second</label>
+								<input type="text" class="form-control" id="second" />
+							</div>
+							<div class="form-group">
+								<label for="third">Third</label>
+								<input type="text" class="form-control" id="third" />
+							</div>
+							<div class="alert alert-warning">
+								<span>List:  <strong data-24-bind="#first, #second, #third"></strong></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

@@ -13,8 +13,8 @@ Usage
 ```
 or
 ```
-<input id="a" />
-<input id="b" />
+<input type="number" id="a" />
+<input type="number" id="b" />
 <div data-24-calc="#a+#b"></div>
 ```
 or

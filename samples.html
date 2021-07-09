@@ -13,7 +13,7 @@
 		<section>
 			<h2>data-24-bind</h2>
 			<div class="row">
-				<div class="col">
+				<div class="col-4">
 					<div class="card">
 						<div class="card-body">
 							<div class="form-group">
@@ -34,7 +34,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-4">
 					<div class="card">
 						<div class="card-body">
 							<div class="form-group">
@@ -51,6 +51,60 @@
 							</div>
 							<div class="alert alert-warning">
 								<span>List:  <strong data-24-bind="#first, #second, #third"></strong></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="mt-4">
+			<h2>data-24-calc</h2>
+			<div class="row">
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="form-group">
+								<label for="initial">Initial velocity (km/h)</label>
+								<input type="number" class="form-control" id="initial" />
+							</div>
+							<div class="form-group">
+								<label for="acceleration">Acceleration</label>
+								<input type="number" class="form-control" id="acceleration" />
+							</div>
+							<div class="form-group">
+								<label for="time">Time (hours)</label>
+								<input type="number" class="form-control" id="time" />
+							</div>
+							<div class="alert alert-warning">
+								<span>Distance (km):  <strong data-24-calc="#initial*#time+#acceleration*#time*#time/2"></strong></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="mt-4">
+			<h2>data-24-show/data-24-hide</h2>
+			<div class="row">
+				<div class="col-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="form-check">
+								<input type="checkbox" id="red" class="form-check-input" checked />
+								<label for="red" class="form-check-label">Red</label>
+							</div>
+							<div class="form-check">
+								<input type="checkbox" id="green" class="form-check-input" checked />
+								<label for="green" class="form-check-label">Green</label>
+							</div>
+							<div class="form-check">
+								<input type="checkbox" id="blue" class="form-check-input" checked />
+								<label for="blue" class="form-check-label">Blue</label>
+							</div>
+							<div class="d-flex justify-content-between">
+								<div class="btn btn-danger" data-24-show="#red">RED</div>
+								<div class="btn btn-success" data-24-show="#green">GREEN</div>
+								<div class="btn btn-primary" data-24-show="#blue">BLUE</div>
 							</div>
 						</div>
 					</div>

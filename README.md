@@ -26,5 +26,13 @@ or
 ```
 
 ## email-autocomplete
+CDN
+```
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.1/jquery.email-autocomplete.js
+```
+Usage
+```
+<input data-24-email-autocomplete="mydomain.com" />
+```
 
 ## intl-phone-mask

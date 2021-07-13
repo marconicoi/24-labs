@@ -49,3 +49,4 @@ Usage
 <input data-tfso-brreg-api-autocomplete="navn" data-tfso-brreg-api-template="<div>{{ navn }}</div><cite># {{organisasjonsnummer}}</cite>" />
 <input data-tfso-brreg-api-response="organisasjonsnummer" />
 ```
+`data-tfso-brreg-api-ignore` and `data-tfso-brreg-api-template` attributes are optional.

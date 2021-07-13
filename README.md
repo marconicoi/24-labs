@@ -45,7 +45,7 @@ https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.4/jquery.brreg-api.js
 ```
 Usage
 ```
-<input data-tfso-brreg-api-request="hjemmeside,navn" />
-<input data-tfso-brreg-api-response="navn" />
+<input data-tfso-brreg-api-request="hjemmeside,navn" data-tfso-brreg-api-ignore="terra,microsoft" />
+<input data-tfso-brreg-api-autocomplete="navn" data-tfso-brreg-api-template="<div>{{ navn }}</div><cite># {{organisasjonsnummer}}</cite>" />
 <input data-tfso-brreg-api-response="organisasjonsnummer" />
 ```

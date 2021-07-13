@@ -36,3 +36,16 @@ Usage
 ```
 
 ## intl-phone-mask
+
+
+## brreg-api
+CDN
+```
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.4/jquery.brreg-api.js
+```
+Usage
+```
+<input data-tfso-brreg-api-request="hjemmeside,navn" />
+<input data-tfso-brreg-api-response="navn" />
+<input data-tfso-brreg-api-response="organisasjonsnummer" />
+```

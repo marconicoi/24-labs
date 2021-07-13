@@ -14,7 +14,7 @@ $(function(){
 			const url=v.includes('@')?v.split('@').pop():v;
 			const sfx=list.split('\n').filter((e)=>e.trim()!=''&&!e.startsWith('//')).reverse().find((e)=>url.endsWith('.'+e));
 			const root=sfx===undefined?url:url.substr(0,url.indexOf(sfx)-1).split('.').pop();
-			const ignore=$(this).is('[data-tfso-brreg-api-ignore]')?$(this).data('tfso-brreg-api-ignore'):[];
+			const ignore=$(this).is('[data-tfso-brreg-api-ignore]')?new String($(this).data('tfso-brreg-api-ignore')).split(','):[];
 			if(sfx===undefined||to_ignore.indexOf(root)!=-1||ignore.indexOf(root)!=-1){
 				c.find('[data-tfso-brreg-api-response]').each(function(){
 					if($(this).is(':input')) $(this).val('');

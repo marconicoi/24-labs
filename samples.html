@@ -7,19 +7,23 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="jquery.live-preview.js"></script>
 	<script src="jquery.email-autocomplete.js"></script>
-	<script src="jquery.open-api.js"></script>
+	<script src="jquery.brreg-api.js"></script>
 	<style type="text/css">
-		ul.brreg-dropdown-list {
+		ul.company-dropdown-list {
 			margin: 0;
 			padding: 0;
 			border: solid 1px #aaa;
 			background-color: #fff;
 			list-style: none;
 		}
-		ul.brreg-dropdown-list li {
+		ul.company-dropdown-list li {
 			padding: 4px 8px;
+			cursor: pointer;
 		}
-		ul.brreg-dropdown-list li.selected {
+		ul.company-dropdown-list li:hover {
+			background-color: #eee;
+		}
+		ul.company-dropdown-list li.selected {
 			background-color: #ddd;
 		}
 	</style>
@@ -144,14 +148,14 @@
 			</div>
 		</section>
 		<section class="mt-4">
-			<h2>data-tfso-brreg-api</h2>
+			<h2>data-dd-company</h2>
 			<div class="row">
 				<div class="col-4">
 					<div class="card">
 						<div class="card-body">
 							<div class="form-group">
 								<label>Email</label>
-								<input type="text" class="form-control" data-tfso-brreg-api-request="hjemmeside,navn" />
+								<input type="text" class="form-control" data-dd-company-request="hjemmeside,navn" data-dd-company-ignore="microsoft,amazon" />
 							</div>
 							<div class="form-group">
 								<label>Phone</label>
@@ -159,11 +163,11 @@
 							</div>
 							<div class="form-group">
 								<label>navn</label>
-								<input type="text" class="form-control" data-tfso-brreg-api-autocomplete="navn" data-tfso-brreg-api-template="<div>{{ navn }}</div><cite># {{organisasjonsnummer}}</cite>" />
+								<input type="text" class="form-control" data-dd-company-autocomplete="navn" data-dd-company-template="<div>{{ navn }}</div><cite># {{organisasjonsnummer}}</cite>" />
 							</div>
 							<div class="form-group">
-								<labe>organisasjonsnummer</label>
-								<input type="text" class="form-control" data-tfso-brreg-api-response="organisasjonsnummer" />
+								<label>organisasjonsnummer</label>
+								<input type="text" class="form-control" data-dd-company-response="organisasjonsnummer" />
 							</div>
 						</div>
 					</div>

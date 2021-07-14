@@ -50,6 +50,7 @@ Usage
 <input data-dd-company-response="organisasjonsnummer" />
 ```
 `data-dd-company-ignore` and `data-dd-company-template` attributes are optional.
+
 CSS
 ```
 ul.company-dropdown-list {

@@ -45,8 +45,29 @@ https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.5/jquery.brreg-api.js
 ```
 Usage
 ```
-<input data-tfso-brreg-api-request="hjemmeside,navn" data-tfso-brreg-api-ignore="terra,microsoft" />
-<input data-tfso-brreg-api-autocomplete="navn" data-tfso-brreg-api-template="<div>{{ navn }}</div><cite># {{organisasjonsnummer}}</cite>" />
-<input data-tfso-brreg-api-response="organisasjonsnummer" />
+<input data-dd-company-request="hjemmeside,navn" data-dd-company-ignore="terra,microsoft" />
+<input data-dd-company-autocomplete="navn" data-dd-company-template="<div>{{ navn }}</div><cite># {{organisasjonsnummer}}</cite>" />
+<input data-dd-company-response="organisasjonsnummer" />
 ```
-`data-tfso-brreg-api-ignore` and `data-tfso-brreg-api-template` attributes are optional.
+`data-dd-company-ignore` and `data-dd-company-template` attributes are optional.
+CSS
+```
+ul.company-dropdown-list {
+	margin: 0;
+	padding: 0;
+	border: solid 1px #aaa;
+	background-color: #fff;
+	list-style: none;
+}
+ul.company-dropdown-list li {
+	padding: 4px 8px;
+	cursor: pointer;
+}
+ul.company-dropdown-list li:hover {
+	background-color: #eee;
+}
+ul.company-dropdown-list li.selected {
+	background-color: #ddd;
+}
+```
+

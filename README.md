@@ -4,7 +4,7 @@
 ## live-preview
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.5/jquery.live-preview.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.6/jquery.live-preview.js
 ```
 Usage
 ```
@@ -28,7 +28,7 @@ or
 ## email-autocomplete
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.5/jquery.email-autocomplete.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.6/jquery.email-autocomplete.js
 ```
 Usage
 ```
@@ -41,7 +41,7 @@ Usage
 ## brreg-api
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.5/jquery.brreg-api.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.6/jquery.brreg-api.js
 ```
 Usage
 ```

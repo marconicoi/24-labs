@@ -1,23 +1,23 @@
 $(function(){
-	$(document).on('click','[data-dd-storage-remove]',function(){
-		localStorage.removeItem($(this).data('dd-storage-remove'));
+	$(document).on('click','[data-dd-unstore]',function(){
+		localStorage.removeItem($(this).data('dd-unstore'));
 		return false;
 	});
 	$(document).on('change','input[data-dd-storage]',function(){
 		localStorage.setItem($(this).data('dd-storage'),$(this).val());
-		$('[data-dd-hide-if]').each(function(){
-			if(eval($(this).data('dd-hide-if').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).hide();
+		$('[data-dd-hideif]').each(function(){
+			if(eval($(this).data('dd-hideif').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).hide();
 			else $(this).show();
 		});
-		$('[data-dd-show-if]').each(function(){
-			if(eval($(this).data('dd-show-if').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).show();
+		$('[data-dd-showif]').each(function(){
+			if(eval($(this).data('dd-showif').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).show();
 			else $(this).hide();
 		});
-		$('[data-dd-click-if]').each(function(){
-			if(eval($(this).data('dd-click-if').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).click();
+		$('[data-dd-clickif]').each(function(){
+			if(eval($(this).data('dd-clickif').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).click();
 		});
-		$('[data-dd-remove-if]').each(function(){
-			if(eval($(this).data('dd-remove-if').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).remove();
+		$('[data-dd-removeif]').each(function(){
+			if(eval($(this).data('dd-removeif').replaceAll(/([a-zA-Z][\w\._]*)/g,'localStorage.$1'))) $(this).remove();
 		});
 	});
 	$('input[data-dd-storage]').each(function(){

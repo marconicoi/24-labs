@@ -4,7 +4,7 @@
 ## live-preview
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.8/jquery.live-preview.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.10/jquery.live-preview.js
 ```
 Usage
 ```
@@ -28,7 +28,7 @@ or
 ## email-autocomplete
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.9/jquery.email-autocomplete.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.10/jquery.email-autocomplete.js
 ```
 Usage
 ```
@@ -41,7 +41,7 @@ Usage
 ## brreg-api
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.9/jquery.brreg-api.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.10/jquery.brreg-api.js
 ```
 Usage
 ```
@@ -75,7 +75,7 @@ ul.company-dropdown-list li.selected {
 ## local-storage
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.9/jquery.local-storage.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.10/jquery.local-storage.js
 ```
 Usage
 ```

@@ -28,7 +28,7 @@ or
 ## email-autocomplete
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.8/jquery.email-autocomplete.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.9/jquery.email-autocomplete.js
 ```
 Usage
 ```
@@ -41,7 +41,7 @@ Usage
 ## brreg-api
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.8/jquery.brreg-api.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.9/jquery.brreg-api.js
 ```
 Usage
 ```
@@ -75,7 +75,7 @@ ul.company-dropdown-list li.selected {
 ## local-storage
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.8/jquery.local-storage.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.9/jquery.local-storage.js
 ```
 Usage
 ```
@@ -85,4 +85,5 @@ Usage
 <div data-dd-show-if="unique_id">content</div>
 <div data-dd-click-if="email">content</div>
 <div data-dd-remove-if="email">content</div>
+<a href="#" data-dd-storage-remove="email">Click here to remove email value from localStorage</a>
 ```

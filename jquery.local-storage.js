@@ -1,4 +1,8 @@
 $(function(){
+	$(document).on('click','[data-dd-storage-remove]',function(){
+		localStorage.removeItem($(this).data('dd-storage-remove'));
+		return false;
+	});
 	$(document).on('change','input[data-dd-storage]',function(){
 		localStorage.setItem($(this).data('dd-storage'),$(this).val());
 		$('[data-dd-hide-if]').each(function(){

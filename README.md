@@ -81,9 +81,9 @@ Usage
 ```
 <input type="hidden" data-dd-storage="unique_id" value="unique-value-here" />
 <input data-dd-storage="email" />
-<div data-dd-hide-if="unique_id">content</div>
-<div data-dd-show-if="unique_id">content</div>
-<div data-dd-click-if="email">content</div>
-<div data-dd-remove-if="email">content</div>
-<a href="#" data-dd-storage-remove="email">Click here to remove email value from localStorage</a>
+<div data-dd-hideif="unique_id">content</div>
+<div data-dd-showif="unique_id">content</div>
+<div data-dd-clickif="email">content</div>
+<div data-dd-removeif="email">content</div>
+<a href="#" data-dd-unstore="email">Click here to remove email value from localStorage</a>
 ```

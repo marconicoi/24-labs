@@ -30,25 +30,28 @@ $(function(){
 					__brreg_active_requests++;
 					$.getJSON(url_base_api+i+'='+q,function(j){
 						__brreg_active_requests--;
-						if(!done&&j!==undefined&&j._embedded!==undefined&&Array.isArray(j._embedded.enheter)){
-							if(j._embedded.enheter.length==1){
-								c.find('[data-dd-company-autocomplete],[data-dd-company-response]').each(function(){
-									const a=$(this).is('[data-dd-company-response]')?$(this).data('dd-company-response'):$(this).data('dd-company-autocomplete');
-									const s=eval('j._embedded.enheter[0].'+a);
-									if(s!==undefined){
-										if($(this).is(':input')) $(this).val(s);
-										else $(this).html(s);
-									}
-								});
+						if(!done){
+							__brreg_response_list=[];
+							if(j!==undefined&&j._embedded!==undefined&&Array.isArray(j._embedded.enheter)){
+								if(j._embedded.enheter.length==1){
+									c.find('[data-dd-company-autocomplete],[data-dd-company-response]').each(function(){
+										const a=$(this).is('[data-dd-company-response]')?$(this).data('dd-company-response'):$(this).data('dd-company-autocomplete');
+										const s=eval('j._embedded.enheter[0].'+a);
+										if(s!==undefined){
+											if($(this).is(':input')) $(this).val(s);
+											else $(this).html(s);
+										}
+									});
+								}
+								else{
+									c.find('[data-dd-company-autocomplete],[data-dd-company-response]').each(function(){
+										__brreg_response_list=j._embedded.enheter;
+										if($(this).is(':input')) $(this).val('');
+										else $(this).html('');
+									});
+								}
+								done=true;
 							}
-							else{
-								c.find('[data-dd-company-autocomplete],[data-dd-company-response]').each(function(){
-									__brreg_response_list=j._embedded.enheter;
-									if($(this).is(':input')) $(this).val('');
-									else $(this).html('');
-								});
-							}
-							done=true;
 						}
 						if(__brreg_active_requests==0){
 							c.find('.brreg-loading').removeClass('brreg-loading').prop('disabled',false);

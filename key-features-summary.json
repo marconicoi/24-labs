@@ -1,0 +1,186 @@
+[
+  {
+    "id": "crm",
+    "title": "CRM",
+    "subtitle": "CRM står for Customer Relationship Management, der målet med en CRM løsning er å sette kunden i sentrum.",
+    "icon": "&#xf2b9;",
+    "color": "",
+    "items": [
+      {
+        "id": "kunderegister",
+        "title": "Kunderegister",
+        "text": "Med kundekort er du sikret at all nøkkelinformasjon knyttet til hver enkelt kontakt alltid er oppdatert og lett tilgjengelig. Hver enkelt kontakt er unik og benyttes på tvers av alle moduler i systemet, slik at du kan forholde deg til ett kunderegister til enhver tid og unngå dobbeltregistrering."
+      },
+      {
+        "id": "leadsgenerering",
+        "title": "Leadsgenerering",
+        "text": "Med kategorier får du en unik mulighet til å filtrere og sortere dine kontakter og kunder. Du definerer selv ønskede kategorier, der hver enkelt kontak eller kunde kan være en del av én eller flere kategorier."
+      },
+      {
+        "id": "kampanjeverktoy",
+        "title": "Kampanjeverktøy",
+        "text": "Med kundekort er du sikret at all nøkkelinformasjon knyttet til hver enkelt kontakt alltid er oppdatert og lett tilgjengelig. Hver enkelt kontakt er unik og benyttes på tvers av alle moduler i systemet, slik at du kan forholde deg til ett kunderegister til enhver tid og unngå dobbeltregistrering."
+      },
+      {
+        "id": "salgsprosess",
+        "title": "Salgsprosess",
+        "text": "Du kan enkelt tilpasse CRM-systemet etter bedriftens salgsprosess og få full kontroll på salgsmuligheter, pipeline og statistikk fra start til slutt. Du velger selv hvordan nøkkeltall presenteres, om det så er pipeline for en ukentlig, månedlig, kvartalsvis eller årlig status. Pipeline kan sorteres på estimert verdi og eventuelt kobles opp mot relaterte prosjekter i prosjekt modulen."
+      },
+      {
+        "id": "kundebehandling",
+        "title": "Kundebehandling",
+        "text": "Samle all informasjon knyttet til hver enkelt kontakts prosjekter, økonomi, ordrehistorikk, aktiviteter og kommunikasjon på ett sted. Det er også tilrettelagt for automatisk linking av epost og dokumenthåndtering."
+      }
+    ]
+  },
+  {
+    "id": "fakturaprogram",
+    "title": "Fakturaprogram",
+    "subtitle": "",
+    "icon": "&#xf15c;",
+    "color": "",
+    "items": [
+      {
+        "id": "ordre",
+        "title": "Ordre",
+        "text": "Samle all informasjon knyttet til hver enkelt kontakts prosjekter, økonomi, ordrehistorikk, aktiviteter og kommunikasjon på ett sted. Det er også tilrettelagt for automatisk linking av epost og dokumenthåndtering."
+      },
+      {
+        "id": "fakturering",
+        "title": "Fakturering",
+        "text": "Enhetsregisteret fungerer som et oppslagsverk og lar deg legge inn nye kontakter raskt og enkelt, med korrekt informasjon. Ved å hente kontakter fra enhetsregisteret matches kontakten mot organisasjonsnummer, slik at du automatisk innhenter post- og besøksadresse, samt annen relevant informasjon som kan hentes fra Brønnøysundsregistrene i henhold til GDPR."
+      },
+      {
+        "id": "viderefakturering",
+        "title": "Viderefakturering",
+        "text": "Du kan enkelt designe og skreddersy tilbudsmaler tilpasset ditt behov i fakturamodulen. Malene kan gjenbrukes i hele ordreprosessen. Deretter oppretter du tilbud direkte i CRM, der kundens kontakt- og adresseinformasjon er ferdig utfylt. Med koblingen mellom fakturamodulen og CRM kan du søke i, og opprette kundebok når en ordre opprettes. Oppsettet er både enkelt og fleksibelt."
+      },
+      {
+        "id": "pdf-faktura",
+        "title": "PDF-faktura",
+        "text": "Med kundekort er du sikret at all nøkkelinformasjon knyttet til hver enkelt kontakt alltid er oppdatert og lett tilgjengelig. Hver enkelt kontakt er unik og benyttes på tvers av alle moduler i systemet, slik at du kan forholde deg til ett kunderegister til enhver tid og unngå dobbeltregistrering."
+      },
+      {
+        "id": "repeterende-faktura",
+        "title": "Repeterende faktura",
+        "text": "Med kategorier får du en unik mulighet til å filtrere og sortere dine kontakter og kunder. Du definerer selv ønskede kategorier, der hver enkelt kontak eller kunde kan være en del av én eller flere kategorier."
+      }
+    ]
+  },
+  {
+    "id": "finansielle-tjenester",
+    "title": "Finansielle tjenester",
+    "subtitle": "",
+    "icon": "&#xf53d;",
+    "color": "",
+    "items": [
+      {
+        "id": "inkasso",
+        "title": "Inkasso",
+        "text": "Med kundekort er du sikret at all nøkkelinformasjon knyttet til hver enkelt kontakt alltid er oppdatert og lett tilgjengelig. Hver enkelt kontakt er unik og benyttes på tvers av alle moduler i systemet, slik at du kan forholde deg til ett kunderegister til enhver tid og unngå dobbeltregistrering."
+      },
+      {
+        "id": "purring",
+        "title": "Purring",
+        "text": "Du kan enkelt tilpasse CRM-systemet etter bedriftens salgsprosess og få full kontroll på salgsmuligheter, pipeline og statistikk fra start til slutt. Du velger selv hvordan nøkkeltall presenteres, om det så er pipeline for en ukentlig, månedlig, kvartalsvis eller årlig status. Pipeline kan sorteres på estimert verdi og eventuelt kobles opp mot relaterte prosjekter i prosjekt modulen."
+      },
+      {
+        "id": "bedriftskort",
+        "title": "Bedriftskort",
+        "text": "Samle all informasjon knyttet til hver enkelt kontakts prosjekter, økonomi, ordrehistorikk, aktiviteter og kommunikasjon på ett sted. Det er også tilrettelagt for automatisk linking av epost og dokumenthåndtering."
+      },
+      {
+        "id": "bedriftslan",
+        "title": "Bedriftslån",
+        "text": "Enhetsregisteret fungerer som et oppslagsverk og lar deg legge inn nye kontakter raskt og enkelt, med korrekt informasjon. Ved å hente kontakter fra enhetsregisteret matches kontakten mot organisasjonsnummer, slik at du automatisk innhenter post- og besøksadresse, samt annen relevant informasjon som kan hentes fra Brønnøysundsregistrene i henhold til GDPR."
+      },
+      {
+        "id": "fakturasalg",
+        "title": "Fakturasalg",
+        "text": "Du kan enkelt designe og skreddersy tilbudsmaler tilpasset ditt behov i fakturamodulen. Malene kan gjenbrukes i hele ordreprosessen. Deretter oppretter du tilbud direkte i CRM, der kundens kontakt- og adresseinformasjon er ferdig utfylt. Med koblingen mellom fakturamodulen og CRM kan du søke i, og opprette kundebok når en ordre opprettes. Oppsettet er både enkelt og fleksibelt."
+      }
+    ]
+  },
+  {
+    "id": "prosjektstyring",
+    "title": "Prosjektstyring",
+    "subtitle": "",
+    "icon": "&#xf1b2;",
+    "color": "",
+    "items": [
+      {
+        "id": "gantt-diagram",
+        "title": "Gantt-diagram",
+        "text": "Med kategorier får du en unik mulighet til å filtrere og sortere dine kontakter og kunder. Du definerer selv ønskede kategorier, der hver enkelt kontak eller kunde kan være en del av én eller flere kategorier."
+      },
+      {
+        "id": "budsjett",
+        "title": "Budsjett",
+        "text": "Med kategorier får du en unik mulighet til å filtrere og sortere dine kontakter og kunder. Du definerer selv ønskede kategorier, der hver enkelt kontak eller kunde kan være en del av én eller flere kategorier."
+      },
+      {
+        "id": "samhandling",
+        "title": "Samhandling",
+        "text": "Med kundekort er du sikret at all nøkkelinformasjon knyttet til hver enkelt kontakt alltid er oppdatert og lett tilgjengelig. Hver enkelt kontakt er unik og benyttes på tvers av alle moduler i systemet, slik at du kan forholde deg til ett kunderegister til enhver tid og unngå dobbeltregistrering."
+      },
+      {
+        "id": "ressursstyring",
+        "title": "Ressursstyring",
+        "text": "Du kan enkelt tilpasse CRM-systemet etter bedriftens salgsprosess og få full kontroll på salgsmuligheter, pipeline og statistikk fra start til slutt. Du velger selv hvordan nøkkeltall presenteres, om det så er pipeline for en ukentlig, månedlig, kvartalsvis eller årlig status. Pipeline kan sorteres på estimert verdi og eventuelt kobles opp mot relaterte prosjekter i prosjekt modulen."
+      },
+      {
+        "id": "prosjektplan",
+        "title": "Prosjektplan",
+        "text": "Samle all informasjon knyttet til hver enkelt kontakts prosjekter, økonomi, ordrehistorikk, aktiviteter og kommunikasjon på ett sted. Det er også tilrettelagt for automatisk linking av epost og dokumenthåndtering."
+      }
+    ]
+  },
+  {
+    "id": "regnskapsprogram",
+    "title": "Regnskapsprogram",
+    "subtitle": "",
+    "icon": "&#xf19c;",
+    "color": "",
+    "items": [
+      {
+        "id": "Kjorebok",
+        "title": "Kjørebok",
+        "text": "Med kundekort er du sikret at all nøkkelinformasjon knyttet til hver enkelt kontakt alltid er oppdatert og lett tilgjengelig. Hver enkelt kontakt er unik og benyttes på tvers av alle moduler i systemet, slik at du kan forholde deg til ett kunderegister til enhver tid og unngå dobbeltregistrering."
+      },
+      {
+        "id": "reiseregning",
+        "title": "Reiseregning",
+        "text": "Du kan enkelt tilpasse CRM-systemet etter bedriftens salgsprosess og få full kontroll på salgsmuligheter, pipeline og statistikk fra start til slutt. Du velger selv hvordan nøkkeltall presenteres, om det så er pipeline for en ukentlig, månedlig, kvartalsvis eller årlig status. Pipeline kan sorteres på estimert verdi og eventuelt kobles opp mot relaterte prosjekter i prosjekt modulen."
+      },
+      {
+        "id": "reskontro",
+        "title": "Reskontro",
+        "text": "Samle all informasjon knyttet til hver enkelt kontakts prosjekter, økonomi, ordrehistorikk, aktiviteter og kommunikasjon på ett sted. Det er også tilrettelagt for automatisk linking av epost og dokumenthåndtering."
+      },
+      {
+        "id": "innbetaling-bank",
+        "title": "Innbetaling (bank)",
+        "text": "Enhetsregisteret fungerer som et oppslagsverk og lar deg legge inn nye kontakter raskt og enkelt, med korrekt informasjon. Ved å hente kontakter fra enhetsregisteret matches kontakten mot organisasjonsnummer, slik at du automatisk innhenter post- og besøksadresse, samt annen relevant informasjon som kan hentes fra Brønnøysundsregistrene i henhold til GDPR."
+      },
+      {
+        "id": "remittering-bank",
+        "title": "Remittering (bank)",
+        "text": "Du kan enkelt designe og skreddersy tilbudsmaler tilpasset ditt behov i fakturamodulen. Malene kan gjenbrukes i hele ordreprosessen. Deretter oppretter du tilbud direkte i CRM, der kundens kontakt- og adresseinformasjon er ferdig utfylt. Med koblingen mellom fakturamodulen og CRM kan du søke i, og opprette kundebok når en ordre opprettes. Oppsettet er både enkelt og fleksibelt."
+      }
+    ]
+  },
+  {
+    "id": "timeregistering",
+    "title": "Timeregistering",
+    "subtitle": "",
+    "icon": "&#xf017;",
+    "color": "",
+    "items": [
+      {
+        "id": "timeregistering-2",
+        "title": "Timeregistering",
+        "text": "Med kundekort er du sikret at all nøkkelinformasjon knyttet til hver enkelt kontakt alltid er oppdatert og lett tilgjengelig. Hver enkelt kontakt er unik og benyttes på tvers av alle moduler i systemet, slik at du kan forholde deg til ett kunderegister til enhver tid og unngå dobbeltregistrering."
+      }
+    ]
+  }
+]

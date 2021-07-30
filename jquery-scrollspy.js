@@ -1,6 +1,7 @@
 $(function(){
 	$('[data-dd-scrollspy]').each(function(){
 		const toc=$(this);
+		const curclass=$(this).is('[data-dd-spyclass]')?$(this).data('dd-spyclass'):'w--current';
 		let node=$(toc.data('dd-scrollspy'));
 		while(node&&node.get(0).scrollHeight==node.get(0).clientHeight){
 			node=node.parent();
@@ -9,18 +10,27 @@ $(function(){
 		node.scroll(function(){
 			const spos=node.scrollTop();
 			let done=false;
-			let curr=toc.find('a:first');
-			toc.find('a').removeClass('w--current').each(function(){
+			let curr=[];
+			toc.find('a').removeClass(curclass).each(function(){
 				if(!done){
+					let level=0;
+					let el=$(this);
+					while(!el.is(toc)){
+						el=el.parent();
+						level++;
+					}
 					if($($(this).attr('href')).position().top>spos){
 						done=true;
 					}
 					else{
-						curr=$(this);
+						curr.length=level-1;
+						curr[level]=$(this);
 					}
 				}
 			});
-			if(curr) curr.addClass('w--current');
+			curr.forEach(function(el){
+				if(el) el.addClass(curclass);
+			});
 		}).scroll();
 	});
 });

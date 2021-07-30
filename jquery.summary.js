@@ -4,6 +4,7 @@ $(function(){
 		const tpl=$(this).children().length==0?$('<div><ul data-dd-toc-level="h1"><li><a></a><ul data-dd-toc-level="h2"><li><a></a><ul data-dd-toc-level="h3"><li><a></a><ul data-dd-toc-level="h4"><li><a></a><ul data-dd-toc-level="h5"><li><a></a><ul data-dd-toc-level="h6"><li><a></a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></div>'):$(this).clone();
 		let cur=tpl;
 		let lvl=-1;
+		tpl.find('a').removeAttr('href');
 		$($(this).data('dd-toc-context')).find(tts.join(',')).filter('[id]').each(function(){
 			const target=$(this);
 			const level=tts.findIndex((e)=>target.is(e));
@@ -26,9 +27,9 @@ $(function(){
 			}
 			cur.append(nel);
 		});
-		tpl.find('[data-dd-toc-level]').each(function(){
-			const el=$(this).find('>*');
-			if(el.length>1) el.first().remove();
+		tpl.find('a').not('[href]').remove();
+		tpl.find('*').each(function(){
+			if(!$(this).is('a')&&$(this).find('a').length==0) $(this).remove();
 		});
 		tpl.find('*').removeAttr('data-dd-toc-level').removeAttr('data-dd-class-match');
 		$(this).html(tpl.html());

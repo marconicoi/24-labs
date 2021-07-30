@@ -89,18 +89,88 @@ Usage
 ```
 
 ## summary
-CDN
+Generate summaries from HTML content autommatically.
+#### CDN
 ```
 https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.11/jquery.summary.js
 ```
-Usage
+#### Usage
+Use attribute `data-dd-toc-context` to create a TOC (Table Of Content) from HTML.
+Example:
 ```
-<div data-dd-toc-context="#content" data-dd-toc-targets="h1,h2">
-  <ul data-dd-toc-level="h1">
+<div data-dd-toc-context="#content"></div>
+<div id="content">
+  <h1 id="title-1">Title 1</h1>
+  <h2 id="subtitle-1">Subtitle 1.1</h2>
+  <h1 id="title-2">Title 2</h1>
+  <h2 id="subtitle-2">Subtitle 2.1</h2>
+</div>
+```
+Will generate this result:
+```
+<div data-dd-toc-context="#content">
+  <ul>
+    <li>
+      <a href="#title-1">Title 1</a>
+      <ul>
+        <li>
+	  <a href="#subtitle-1">Subtitle 1.1</a>
+	</li>
+      </ul>
+    </li>
+      <a href="#title-2">Title 2</a>
+      <ul>
+        <li>
+	  <a href="#subtitle-2">Subtitle 2.1</a>
+	</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div id="content">
+  <h1 id="title-1">Title 1</h1>
+  <h2 id="subtitle-1">Subtitle 1.1</h2>
+  <h1 id="title-2">Title 2</h1>
+  <h2 id="subtitle-2">Subtitle 2.1</h2>
+</div>
+```
+If HTML headings not are H1, H2..., H6 use `data-dd-toc-targets`:
+
+```
+<div data-dd-toc-context="#content" data-dd-toc-targets="h3,h5"></div>
+<div id="content">
+  <h3 id="title-1">Title 1</h3>
+  <h5 id="subtitle-1">Subtitle 1.1</h5>
+  <h3 id="title-2">Title 2</h3>
+  <h5 id="subtitle-2">Subtitle 2.1</h5>
+</div>
+```
+To custom template, use `data-dd-toc-level` to set each level container:
+
+```
+<div data-dd-toc-context="#content" data-dd-toc-targets="h3,h5">
+  <div data-dd-toc-level="h1">
+    <a></a>
+    <div data-dd-toc-level="h2">
+      <a></a>
+    </div>
+  </div>
+</div>
+<div id="content">
+  <h3 id="title-1" class="green">Title 1</h3>
+  <h5 id="subtitle-1">Subtitle 1.1</h5>
+  <h3 id="title-2" class="blue">Title 2</h3>
+  <h5 id="subtitle-2">Subtitle 2.1</h5>
+</div>
+```
+Use `data-dd-class-match` to get specific classes from headings:
+```
+<div data-dd-toc-context="#content" data-dd-toc-targets="h3,h5">
+  <ul data-dd-toc-level="h3">
     <li data-dd-class-match="blue,red,green">
       <a></a>
-      <ul data-dd-toc-level="h2">
-        <li>
+      <ul data-dd-toc-level="h5">
+        <li data-dd-class-match="bold,italic" class="any-class other-class">
           <a></a>
         </li>
       </ul>
@@ -108,9 +178,9 @@ Usage
   </ul>
 </div>
 <div id="content">
-  <h1 id="title-1" class="green">Title 1</h1>
-  <h2 id="subtitle-1">Subtitle 1.1</h2>
-  <h1 id="title-2" class="blue">Title 2</h1>
-  <h2 id="subtitle-2">Subtitle 2.1</h2>
+  <h3 id="title-1" class="green">Title 1</h3>
+  <h5 id="subtitle-1" class="bold">Subtitle 1.1</h5>
+  <h3 id="title-2" class="blue">Title 2</h3>
+  <h5 id="subtitle-2" class="italic">Subtitle 2.1</h5>
 </div>
 ```

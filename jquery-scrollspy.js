@@ -7,6 +7,7 @@ $(function(){
 			node=node.parent();
 		}
 		if(node.is('html')) node=$(window);
+		node=$(window);
 		node.scroll(function(){
 			const spos=node.scrollTop();
 			let done=false;
@@ -19,7 +20,7 @@ $(function(){
 						el=el.parent();
 						level++;
 					}
-					if($($(this).attr('href')).position().top>spos){
+					if($($(this).attr('href')).offset().top>spos){
 						done=true;
 					}
 					else{

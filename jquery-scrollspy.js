@@ -29,6 +29,7 @@ $(function(){
 					}
 				}
 			});
+			if(curr.length==0) curr[0]=toc.find('a:first');
 			curr.forEach(function(el){
 				if(el) el.addClass(curclass);
 			});

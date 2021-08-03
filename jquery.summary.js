@@ -5,7 +5,24 @@ $(function(){
 		let cur=tpl;
 		let lvl=-1;
 		tpl.find('a').removeAttr('href');
-		$($(this).data('dd-toc-context')).find(tts.join(',')).filter('[id]').each(function(){
+		let list=$($(this).data('dd-toc-context')).find(tts.join(',')).filter('[id]').get();
+		if($(this).is('[data-dd-toc-order]')){
+			const ator=$(this).data('dd-toc-order');
+			let order=new Array(tts.length).fill(0);
+			$(list).each(function(){
+				const level=tts.findIndex((e)=>$(this).is(e));
+				for(let i=level+1;i<order.length;i++) order[i]=0;
+				if($(this).is('['+ator+']')) order[level]=$(this).attr(ator);
+				else order[level]++;
+				$(this).attr(ator,order.join('.'));
+			});
+			list.sort(function(a,b){
+				if($(a).attr(ator)>$(b).attr(ator)) return 1;
+				if($(a).attr(ator)<$(b).attr(ator)) return -1;
+				return 0;
+			});
+		}
+		$(list).each(function(){
 			const target=$(this);
 			const level=tts.findIndex((e)=>target.is(e));
 			let nel=tpl.find('[data-dd-toc-level="'+tts[level]+'"]>*:first').clone();

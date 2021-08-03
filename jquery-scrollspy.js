@@ -2,6 +2,7 @@ $(function(){
 	$('[data-dd-scrollspy]').each(function(){
 		const toc=$(this);
 		const curclass=$(this).is('[data-dd-spyclass]')?$(this).data('dd-spyclass'):'w--current';
+		const offset=$(this).is('[data-dd-scrolloffset]')?$(this).data('dd-scrolloffset'):0;
 		let node=$(toc.data('dd-scrollspy'));
 		while(node&&node.get(0).scrollHeight==node.get(0).clientHeight){
 			node=node.parent();
@@ -9,7 +10,7 @@ $(function(){
 		if(node.is('html')) node=$(window);
 		node=$(window);
 		node.scroll(function(){
-			const spos=node.scrollTop();
+			const spos=node.scrollTop()+offset;
 			let done=false;
 			let curr=[];
 			toc.find('a').removeClass(curclass).each(function(){

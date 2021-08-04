@@ -12,7 +12,7 @@ $(function(){
 					const lel=$(this).attr('lang');
 					const cel=$(this).text();
 					const dic=dictionary.findIndex((e)=>e[lel=='en'?'name':lel]==cel);
-					if(dic>=0&&lang in dictionary[dic]){
+					if(dic>=0&&(lang=='en'?'name':lang) in dictionary[dic]){
 						$(this).attr('lang',lang);
 						$(this).text(dictionary[dic][lang]);
 						done=true;

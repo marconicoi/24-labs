@@ -10,11 +10,12 @@ $(function(){
 				let done=false;
 				$('[lang]:not(html)').each(function(){
 					const lel=$(this).attr('lang');
+					const lpa=lang=='en'?'name':lang;
 					const cel=$(this).text();
-					const dic=dictionary.findIndex((e)=>e[lel=='en'?'name':lel]==cel);
-					if(dic>=0&&(lang=='en'?'name':lang) in dictionary[dic]){
+					const dic=dictionary.findIndex((e)=>e[lpa]==cel);
+					if(dic>=0&&lpa in dictionary[dic]){
 						$(this).attr('lang',lang);
-						$(this).text(dictionary[dic][lang]);
+						$(this).text(dictionary[dic][lpa]);
 						done=true;
 					}
 				});

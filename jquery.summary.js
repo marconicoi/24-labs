@@ -46,7 +46,7 @@ $(function(){
 		});
 		tpl.find('a').not('[href]').remove();
 		tpl.find('*').each(function(){
-			if(!$(this).is('a')&&$(this).find('a').length==0) $(this).remove();
+			if(!$(this).is('a')&&$(this).find('a').length==0&&$(this).closest('a').length==0) $(this).remove();
 		});
 		tpl.find('*').removeAttr('data-dd-toc-level').removeAttr('data-dd-class-match');
 		$(this).html(tpl.html());

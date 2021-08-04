@@ -9,10 +9,10 @@ $(function(){
 				let lang=$(this).data('dd-setlang');
 				let done=false;
 				$('[lang]:not(html)').each(function(){
-					const lel=$(this).attr('lang');
+					const lel=$(this).attr('lang')=='en'?'name':$(this).attr('lang');
 					const lpa=lang=='en'?'name':lang;
 					const cel=$(this).text();
-					const dic=dictionary.findIndex((e)=>e[lpa]==cel);
+					const dic=dictionary.findIndex((e)=>e[lel]==cel);
 					if(dic>=0&&lpa in dictionary[dic]){
 						$(this).attr('lang',lang);
 						$(this).text(dictionary[dic][lpa]);

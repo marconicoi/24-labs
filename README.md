@@ -4,7 +4,7 @@
 ## live-preview
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.11/jquery.live-preview.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.live-preview.js
 ```
 Usage
 ```
@@ -28,7 +28,7 @@ or
 ## email-autocomplete
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.11/jquery.email-autocomplete.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.email-autocomplete.js
 ```
 Usage
 ```
@@ -41,7 +41,7 @@ Usage
 ## brreg-api
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.11/jquery.brreg-api.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.brreg-api.js
 ```
 Usage
 ```
@@ -75,7 +75,7 @@ ul.company-dropdown-list li.selected {
 ## local-storage
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.11/jquery.local-storage.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.local-storage.js
 ```
 Usage
 ```
@@ -92,7 +92,7 @@ Usage
 Generate summaries from HTML content autommatically.
 #### CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.11/jquery.summary.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.summary.js
 ```
 #### Usage
 Use attribute `data-dd-toc-context` to create a TOC (Table Of Content) from HTML.
@@ -184,3 +184,28 @@ Use `data-dd-class-match` to get specific classes from headings:
   <h5 id="subtitle-2" class="italic">Subtitle 2.1</h5>
 </div>
 ```
+
+## translate
+CDN
+```
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.translate.js
+```
+Usage
+```
+<head>
+  ...
+  <meta name="dictionary-url" content="https://hook.integromat.com/2befs9yvjppxsulofmfkzkwfnswxv6cw" />
+  ...
+</head>
+<body>
+  ...
+  <a href="#" data-dd-setlang="no">Norwegian</a>
+  <button type="button" data-dd-setlang="se">Swedish</button>
+  <div data-dd-setlang="en">English</div>
+  ...
+  <span lang="en">Translatable text</span>
+  ...
+</body>
+
+```
+Click elements with `data-dd-setlang` attribute will change language to each element with `lang` attribute.

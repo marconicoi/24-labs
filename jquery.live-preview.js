@@ -32,6 +32,11 @@ $(function(){
 			else self.html(formula);
 		});
 	}).filter('[value!=""]').change();
+	$(document).on('click','[data-dd-onlyoneclass]',function(){
+		let cls=$(this).data('dd-onlyoneclass');
+		$('.'+cls).removeClass(cls);
+		$(this).addClass(cls);
+	});
 	$(document).on('click',':checkbox',function(){
 		if($(this).is(':checked')){
 			$('[data-dd-show="#'+$(this).attr('id')+'"]').show();

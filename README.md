@@ -4,25 +4,33 @@
 ## live-preview
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.live-preview.js
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.23/jquery.live-preview.js
 ```
 Usage
 ```
 <input id="fname" />
-<div data-24-bind="#fname"></div>
+<div data-dd-bind="#fname"></div>
 ```
 or
 ```
 <input type="number" id="a" />
 <input type="number" id="b" />
-<div data-24-calc="#a+#b"></div>
+<div data-dd-calc="#a+#b"></div>
 ```
 or
 ```
 <input type="checkbox" id="make-visible" />
-<div data-24-show="#make-visible">Visible if checked</div>
+<div data-dd-show="#make-visible">Visible if checked</div>
 <input type="checkbox" id="make-invisible" />
-<div data-24-hide="#make-invisible">Visible if unchecked</div>
+<div data-dd-hide="#make-invisible">Visible if unchecked</div>
+```
+or
+```
+<ul>
+  <li data-dd-onlyoneclass="active-item">one</li>
+  <li data-dd-onlyoneclass="active-item">two</li>
+  <li class="other-class" data-dd-onlyoneclass="active-item">three</li>
+</ul>
 ```
 
 ## email-autocomplete

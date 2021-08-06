@@ -1,9 +1,9 @@
 $(function(){
-	$(document).on('keyup',':input',function() {
+	$(document).on('change keyup',':input',function() {
 		let input=$(this);
-		$('[data-24-bind*="#'+$(this).attr('id')+'"]').each(function(){
+		$('[data-dd-bind*="#'+$(this).attr('id')+'"]').each(function(){
 			let self=$(this);
-			let formula=$(this).data('24-bind');
+			let formula=$(this).data('dd-bind');
 			let terms=formula.split(/[,;:\.\s()]/);
 			terms.forEach(function(e){
 				let v=$(e).val();
@@ -18,9 +18,9 @@ $(function(){
 				else if(input.is('[type=email]')) self.attr('href','mailto://'+formula);
 			}
 		});
-		$('[data-24-calc*="#'+$(this).attr('id')+'"]').each(function(){
+		$('[data-dd-calc*="#'+$(this).attr('id')+'"]').each(function(){
 			let self=$(this);
-			let formula=$(this).data('24-calc');
+			let formula=$(this).data('dd-calc');
 			let terms=formula.replaceAll(' ','').split(/[*+-/]/);
 			terms.forEach(function(e){
 				let v=$(e).val();
@@ -31,15 +31,23 @@ $(function(){
 			if(self.is(':input')) self.val(formula);
 			else self.html(formula);
 		});
-	}).filter('[value!=""]').keyup();
+	}).filter('[value!=""]').change();
 	$(document).on('click',':checkbox',function(){
 		if($(this).is(':checked')){
-			$('[data-24-show="#'+$(this).attr('id')+'"]').show();
-			$('[data-24-hide="#'+$(this).attr('id')+'"]').hide();
+			$('[data-dd-show="#'+$(this).attr('id')+'"]').show();
+			$('[data-dd-hide="#'+$(this).attr('id')+'"]').hide();
 		}
 		else{
-			$('[data-24-show="#'+$(this).attr('id')+'"]').hide();
-			$('[data-24-hide="#'+$(this).attr('id')+'"]').show();
+			$('[data-dd-show="#'+$(this).attr('id')+'"]').hide();
+			$('[data-dd-hide="#'+$(this).attr('id')+'"]').show();
 		}
-	}).click();
+	});
+	$('[data-dd-show]').each(function(){
+		if($($(this).data('dd-show')).is(':checked')) $(this).show();
+		else $(this).hide();
+	});
+	$('[data-dd-hide]').each(function(){
+		if($($(this).data('dd-hide')).is(':checked')) $(this).hide();
+		else $(this).show();
+	});
 });

@@ -209,3 +209,35 @@ Usage
 
 ```
 Click elements with `data-dd-setlang` attribute will change language to each element with `lang` attribute.
+
+## autoload
+CDN
+```
+https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.21/jquery.autoload.js
+```
+Usage
+```
+<div data-dd-autoload="https://nsubwihl.api.sanity.io/v1/data/query/production-norway?query=*['ai' in metaTags.pageKeywords]" data-dd-autoloop="result">
+	<div>
+		<a href="https://url-base-blog.com/{{slug.current}}">{{title}}</a>
+		<p>{{publishedAt}}</p>
+	</div>
+</div>
+<h4>NEWS</h4>
+<select data-dd-autoload="https://saurav.tech/NewsAPI/top-headlines/category/{{this.value}}/us.json" target="#news">
+	<option value="business">Business</option>
+	<option value="entertainment">Entertainm</option>
+	<option value="general">General</option>
+	<option value="health">Health</option>
+	<option value="science">Science</option>
+	<option value="sports">Sports</option>
+	<option value="technology">Technology</option>
+</select>
+<div id="news" data-dd-autoloop="articles:5">
+	<div class="card">
+		<a href="{{url}}" data-dd-autocontent="{{title}}">Title</a>
+		<p data-dd-autocontent="{{author}}">Author</p>
+	</div>
+</div>
+
+```

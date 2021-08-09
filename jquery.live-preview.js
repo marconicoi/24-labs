@@ -55,4 +55,27 @@ $(function(){
 		if($($(this).data('dd-hide')).is(':checked')) $(this).hide();
 		else $(this).show();
 	});
+	$('[data-dd-timestamp]').each(function(){
+		__dt__update($(this));
+	});
+	function __dt__update(el){
+		const MONTH=['Jan','Feb','Mar','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		const tm=el.data('dd-timestamp');
+		const ct=new Date();
+		const dt=new Date(isNaN(tm)?tm:tm*1000);
+		const cy=ct.getFullYear();
+		const dy=dt.getFullYear();
+		const cd=cy*10000+ct.getMonth()*100+ct.getDate();
+		const dd=dy*10000+dt.getMonth()*100+dt.getDate();
+		let str='';
+		let ti=new Date().setHours(23,59,59,999)-ct;
+		if(cd==dd) str='TODAY';
+		else if(cd==dd+1) str='Yesterday';
+		else if(cy==dy) str=dt.getDate()+'.'+MONTH[dt.getMonth()];
+		else str=dt.getDate()+'.'+MONTH[dt.getMonth()]+' '+dy;
+		el.text(str);
+		if(ti>0) setTimeout(function(){
+			__dt__update(el);
+		},ti);
+	}
 });

@@ -11,9 +11,13 @@ $(function(){
 				$('[lang]:not(html)').each(function(){
 					const lel=$(this).attr('lang')=='en'?'name':$(this).attr('lang');
 					const lpa=lang=='en'?'name':lang;
-					const cel=$(this).text();
+					const cel=$(this).html();
 					const dic=dictionary.findIndex((e)=>e[lel]==cel);
-					if(dic>=0&&lpa in dictionary[dic]){
+					if($(this).is('[data-dd-timestamp]')){
+						$(this).attr('lang',lang);
+						$(this).change();
+					}
+					else if(dic>=0&&lpa in dictionary[dic]&&dictionary[dic][lpa]!=null&&dictionary[dic][lpa].trim()!==''){
 						$(this).attr('lang',lang);
 						$(this).text(dictionary[dic][lpa]);
 						done=true;

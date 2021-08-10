@@ -55,11 +55,10 @@ $(function(){
 		if($($(this).data('dd-hide')).is(':checked')) $(this).hide();
 		else $(this).show();
 	});
-	$('[data-dd-timestamp]').each(function(){
+	$('[data-dd-timestamp]').change(function(){
 		__dt__update($(this));
-	});
+	}).change();
 	function __dt__update(el){
-		const MONTH=['Jan','Feb','Mar','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 		const tm=el.data('dd-timestamp');
 		const ct=new Date();
 		const dt=new Date(isNaN(tm)?tm:tm*1000);
@@ -67,12 +66,30 @@ $(function(){
 		const dy=dt.getFullYear();
 		const cd=cy*10000+ct.getMonth()*100+ct.getDate();
 		const dd=dy*10000+dt.getMonth()*100+dt.getDate();
+		const lang=el.attr('lang');
 		let str='';
 		let ti=new Date().setHours(23,59,59,999)-ct;
-		if(cd==dd) str='TODAY';
-		else if(cd==dd+1) str='Yesterday';
-		else if(cy==dy) str=dt.getDate()+'.'+MONTH[dt.getMonth()];
-		else str=dt.getDate()+'.'+MONTH[dt.getMonth()]+' '+dy;
+		if(lang=='no'){
+			const MONTH=['Jan','Feb','Mar','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Des'];
+			if(cd==dd) str='i dag';
+			else if(cd==dd+1) str='i går';
+			else if(cy==dy) str=dt.getDate()+'.'+MONTH[dt.getMonth()];
+			else str=dt.getDate()+'.'+MONTH[dt.getMonth()]+' '+dy;
+		}
+		else if(lang=='se'){
+			const MONTH=['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
+			if(cd==dd) str='i dag';
+			else if(cd==dd+1) str='i går';
+			else if(cy==dy) str=dt.getDate()+' '+MONTH[dt.getMonth()];
+			else str=dt.getDate()+' '+MONTH[dt.getMonth()]+' '+dy;
+		}
+		else {
+			const MONTH=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+			if(cd==dd) str='TODAY';
+			else if(cd==dd+1) str='Yesterday';
+			else if(cy==dy) str=MONTH[dt.getMonth()]+' '+dt.getDate();
+			else str=MONTH[dt.getMonth()]+' '+dt.getDate()+', '+dy;
+		}
 		el.text(str);
 		if(ti>0) setTimeout(function(){
 			__dt__update(el);

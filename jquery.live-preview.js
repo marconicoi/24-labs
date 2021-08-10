@@ -76,10 +76,10 @@ $(function(){
 		let str='';
 		let ti=new Date().setHours(23,59,59,999)-ct;
 		if(lang=='no'){
-			const MONTH=['Jan','Feb','Mar','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Des'];
+			const MONTH=['jan','feb','mar','apr','mai','jun','jul','aug','sep','okt','nov','des'];
 			if(cd==dd) str='i dag';
 			else if(cd==dd+1) str='i går';
-			else if(cy==dy) str=dt.getDate()+'.'+MONTH[dt.getMonth()];
+			else if(cy==dy) str=dt.getDate()+'. '+MONTH[dt.getMonth()];
 			else str=dt.getDate()+'.'+MONTH[dt.getMonth()]+' '+dy;
 		}
 		else if(lang=='se'){

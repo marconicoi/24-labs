@@ -1,10 +1,28 @@
-# 24-labs
-## Introduction
-
+# 24seven-labs
+## Table of Contents
+* [About The Project](about-the-project)
+* [Getting Started](getting-started)
+* [Libraries](libraries)
+  * [live-preview](live-preview)
+  * [email-autocomplete](email-autocomplete)
+  * [brreg-api](brreg-api)
+  * [local-storage](local-storage)
+  * [summary](summary)
+  * [translate](translate)
+  * [autoload](autoload)
+## About The Project
+The purpose of this project is to provide a set of enhancements to standard HTML that make it easier to produce more dynamic and interactive web pages.
+## Getting Started
+In this project we chose to improve the HTML through attributes with the prefix `data-dd-`.
+### Prerequisites
+This project uses the jQuery framework, which must be loaded before any other library:
+```
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+```
 ## live-preview
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.23/jquery.live-preview.js
+<script src="https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.23/jquery.live-preview.js"></script>
 ```
 Usage
 ```
@@ -36,7 +54,7 @@ or
 ## email-autocomplete
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.email-autocomplete.js
+<script src="https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.email-autocomplete.js"></script>
 ```
 Usage
 ```
@@ -49,7 +67,7 @@ Usage
 ## brreg-api
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.brreg-api.js
+<script src="https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.brreg-api.js"></script>
 ```
 Usage
 ```
@@ -83,7 +101,7 @@ ul.company-dropdown-list li.selected {
 ## local-storage
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.local-storage.js
+<script src="https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.local-storage.js"></script>
 ```
 Usage
 ```
@@ -100,7 +118,7 @@ Usage
 Generate summaries from HTML content autommatically.
 #### CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.summary.js
+<script src="https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.summary.js"></script>
 ```
 #### Usage
 Use attribute `data-dd-toc-context` to create a TOC (Table Of Content) from HTML.
@@ -196,7 +214,7 @@ Use `data-dd-class-match` to get specific classes from headings:
 ## translate
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.translate.js
+<script src="https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.20/jquery.translate.js"></script>
 ```
 Usage
 ```
@@ -221,7 +239,7 @@ Click elements with `data-dd-setlang` attribute will change language to each ele
 ## autoload
 CDN
 ```
-https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.21/jquery.autoload.js
+<script src="https://cdn.jsdelivr.net/gh/marconicoi/24-labs@0.21/jquery.autoload.js"></script>
 ```
 Usage
 ```

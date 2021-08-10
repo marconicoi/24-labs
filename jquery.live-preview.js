@@ -83,7 +83,7 @@ $(function(){
 			else str=dt.getDate()+'.'+MONTH[dt.getMonth()]+' '+dy;
 		}
 		else if(lang=='se'){
-			const MONTH=['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
+			const MONTH=['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
 			if(cd==dd) str='i dag';
 			else if(cd==dd+1) str='i går';
 			else if(cy==dy) str=dt.getDate()+' '+MONTH[dt.getMonth()];

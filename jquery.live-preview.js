@@ -37,6 +37,11 @@ $(function(){
 		$('.'+cls).removeClass(cls);
 		$(this).addClass(cls);
 	});
+	$('[data-dd-parentattr]').each(function(){
+		const attr=$(this)
+		$(this).parent().attr($(this).data('dd-parentattr'),$(this).html());
+		$(this).remove();
+	});
 	$(document).on('click',':checkbox',function(){
 		if($(this).is(':checked')){
 			$('[data-dd-show="#'+$(this).attr('id')+'"]').show();

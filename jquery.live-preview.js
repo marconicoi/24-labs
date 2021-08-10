@@ -38,8 +38,9 @@ $(function(){
 		$(this).addClass(cls);
 	});
 	$('[data-dd-parentattr]').each(function(){
-		const attr=$(this)
-		$(this).parent().attr($(this).data('dd-parentattr'),$(this).html());
+		let parent=$(this).closest('[role=listitem]');
+		parent=parent.length==1?parent:$(this).parent();
+		parent.attr($(this).data('dd-parentattr'),$(this).html());
 		$(this).remove();
 	});
 	$(document).on('click',':checkbox',function(){

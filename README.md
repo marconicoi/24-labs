@@ -1,15 +1,15 @@
 # 24seven-labs
 ## Table of Contents
-* [About The Project](about-the-project)
-* [Getting Started](getting-started)
-* [Libraries](libraries)
-  * [live-preview](live-preview)
-  * [email-autocomplete](email-autocomplete)
-  * [brreg-api](brreg-api)
-  * [local-storage](local-storage)
-  * [summary](summary)
-  * [translate](translate)
-  * [autoload](autoload)
+* [About The Project](#about-the-project)
+* [Getting Started](#getting-started)
+* [Libraries](#libraries)
+  * [live-preview](#live-preview)
+  * [email-autocomplete](#email-autocomplete)
+  * [brreg-api](#brreg-api)
+  * [local-storage](#local-storage)
+  * [summary](#summary)
+  * [translate](#translate)
+  * [autoload](#autoload)
 ## About The Project
 The purpose of this project is to provide a set of enhancements to standard HTML that make it easier to produce more dynamic and interactive web pages.
 ## Getting Started

@@ -8,6 +8,7 @@ $(function(){
 	$(document).on('change','input[data-dd-company-request]',function(){
 		const v=$(this).val();
 		const r=$(this).data('dd-company-request');
+		const s=$(this).is('[data-dd-company-limit]')?$(this).data('dd-company-limit'):20;
 		let c=$(this).closest('form');
 		if(c.length==0) c=$('body');
 		$.get(public_suffix_list_url,function(list){
@@ -28,7 +29,7 @@ $(function(){
 					c.find('[data-dd-company-autocomplete],[data-dd-company-response]').filter(':input:enabled').addClass('brreg-loading').prop('disabled',true);
 					const q=i==='hjemmeside'?root+'.'+sfx:root;
 					__brreg_active_requests++;
-					$.getJSON(url_base_api+i+'='+q,function(j){
+					$.getJSON(url_base_api+i+'='+q+'&size='+s,function(j){
 						__brreg_active_requests--;
 						if(!done){
 							__brreg_response_list=[];
@@ -70,7 +71,7 @@ $(function(){
 			let m=$('<ul class="company-dropdown-list"></ul>');
 			__brreg_response_list.forEach(function(o){
 				const t=template.replaceAll(/\{\{\s*\w+\s*\}\}/g,(s)=>eval('o.'+s.replaceAll(/[\{\}\s]/g,'')));
-				m.append('<li>'+t+'</li>');
+				m.append('<li class="company-dropdown-item">'+t+'</li>');
 			});
 			m.css({
 				'position': 'absolute',

@@ -115,8 +115,9 @@ $(function(){
 			const self=$(this);
 			const k=$(this).data('dd-company-autocomplete');
 			const v=new String($(this).val());
+			const s=$(this).is('[data-dd-company-limit]')?$(this).data('dd-company-limit'):10;
 			if(v.length>2){
-				$.getJSON(url_base_api+k+'='+v,function(j){
+				$.getJSON(url_base_api+k+'='+v+'&size='+s,function(j){
 					if(j!==undefined&&j._embedded!==undefined&&Array.isArray(j._embedded.enheter)){
 						__brreg_response_list=j._embedded.enheter;
 						self.trigger('focus');

@@ -19,7 +19,8 @@ $(function(){
 					}
 					else if(dic>=0&&lpa in dictionary[dic]&&dictionary[dic][lpa]!=null&&dictionary[dic][lpa].trim()!==''){
 						$(this).attr('lang',lang);
-						$(this).text(dictionary[dic][lpa]);
+						if($(this).is('input')) $(this).val(dictionary[dic][lpa]);
+						else $(this).text(dictionary[dic][lpa]);
 						done=true;
 					}
 				});

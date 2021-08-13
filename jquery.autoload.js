@@ -1,5 +1,5 @@
 $(function(){
-	$('[data-dd-autoload]:not(:input)').each(function(){
+	$('[data-dd-autoload]:not(:input,form)').each(function(){
 		const self=$(this);
 		const template=self.html();
 		const loop=self.is('[data-dd-autoloop]')?self.data('dd-autoloop'):false;
@@ -18,6 +18,20 @@ $(function(){
 			$.getJSON(url_base.replaceAll(/\{\{[^\}]+\}\}/g,(s)=>eval(s.replaceAll(/[\{\}\s]/g,''))),function(json){
 				__auto__target__populate(json,target,template,loop);
 			});
+		});
+		target.removeAttr('data-dd-autoloop').html('');
+		self.removeAttr('data-dd-autoload').change();
+	});
+	$('form[data-dd-autoload]').each(function(){
+		const self=$(this);
+		const url_base=self.data('dd-autoload');
+		const template=self.html();
+		const loop=false;
+		$(this).submit(function(){
+			$.getJSON(url_base.replaceAll(/\{\{[^\}]+\}\}/g,(s)=>eval(s.replaceAll(/[\{\}\s]/g,''))),self.serialize(),function(json){
+				__auto__target__populate(json,self,template,loop);
+			});
+			return false;
 		});
 		target.removeAttr('data-dd-autoloop').html('');
 		self.removeAttr('data-dd-autoload').change();
@@ -51,5 +65,6 @@ $(function(){
 		target.find('[data-dd-autocontent]').each(function(){
 			$(this).html($(this).data('dd-autocontent')).removeAttr('data-dd-autocontent');
 		});
+		target.find(':input,[data-dd-timestamp]').change();
 	}
 });

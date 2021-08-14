@@ -9,8 +9,8 @@ $(function(){
 				let lang=$(this).data('dd-setlang');
 				let done=false;
 				$('[lang]:not(html)').each(function(){
-					const lel=$(this).attr('lang')=='en'?'name':$(this).attr('lang');
-					const lpa=lang=='en'?'name':lang;
+					const lel=$(this).attr('lang')=='no'?'name':$(this).attr('lang');
+					const lpa=lang=='no'?'name':lang;
 					const cel=$(this).html();
 					const dic=dictionary.findIndex((e)=>e[lel]==cel);
 					if($(this).is('[data-dd-timestamp]')){

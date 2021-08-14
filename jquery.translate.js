@@ -2,7 +2,7 @@ $(function(){
 	const url_api=$('meta[name=dictionary-url]').attr('content');
 	if(url_api){
 		$.getJSON(url_api,function(dictionary){
-			let current_lang=localStorage.getItem('w--current-language')||window.navigator.userLanguage||window.navigator.language||'en';
+			let current_lang=localStorage.getItem('w--current-language')||window.navigator.userLanguage||window.navigator.language||'no';
 			current_lang=current_lang.substr(0,2);
 			let el=$('<b></b>').data('dd-setlang',current_lang);
 			$('[data-dd-setlang]').add(el).click(function(){

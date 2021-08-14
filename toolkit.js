@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
-	document.querySelectorAll('body *:not(script):not(noscript):not(style)').forEach(function(el){
+	document.querySelectorAll('body *[lang=no]:not(script):not(noscript):not(style)').forEach(function(el){
 		if(el.hasChildNodes()){
 			el.childNodes.forEach(function(ch){
 				if(ch.nodeType==document.TEXT_NODE){
@@ -7,10 +7,5 @@ document.addEventListener('DOMContentLoaded',function(){
 				}
 			});
 		}
-	});
-	document.querySelectorAll('input:required').forEach(function(el){
-		document.querySelectorAll('label[for="'+el.id+'"]').forEach(function(el){
-			el.classList.add('required');
-		});
 	});
 });

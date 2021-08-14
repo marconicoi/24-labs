@@ -102,6 +102,60 @@ $(function(){
 			__dt__update(el);
 		},ti);
 	}
+	$(document).on('submit','form[data-dd-errobj]',function(){
+		const form=$(this);
+		const failMsg=form.data('dd-failmsg');
+		const errMsg=form.data('dd-errmsg');
+		const okMsg=form.data('dd-okmsg');
+		const errObj=form.data('dd-errobj');
+		const data=form.serialize();
+		$(failMsg).hide();
+		$(errMsg).hide();
+		$(okMsg).hide();
+		form.find(':input:enabled').addClass('__disabled').attr('disabled',true);
+		form.find('[type=submit],button:not([type])').prepend('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="12" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve" class="__loading"><path d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform></path></svg>');
+		$.ajax({
+			type: form.attr('method'),
+			url: form.attr('action'),
+			cache: false,
+			data: data,
+			complete: function(){
+				form.find('.__disabled').removeClass('__disabled').removeAttr('disabled');
+				form.find('svg.__loading').remove();
+			},
+			error: function(xhr){
+				if(xhr.responseJSON[errObj]) $(errMsg).html(xhr.responseJSON[errObj]).show();
+				else $(failMsg).show();
+			},
+			success: function(json){
+				if(json[errObj]) $(errMsg).html(json[errObj]).show();
+				else{
+					$(okMsg).show();
+					form.find(':input[name]').each(function(){
+						const name=$(this).attr('name');
+						if(json[name]) $(this).val(json[name]).change();
+					});
+					if(form.is('[target]')){
+						const target=$(form.attr('target'));
+						if(target.length>0){
+							let template='';
+							if(target.is('[data-dd-targettemplate]')) template=atob(target.data('dd-targettemplate'));
+							else{
+								template=target.html();
+								target.attr('data-dd-targettemplate',btoa(template));
+							}
+							target.html(template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,(s)=>eval('json.'+s.replaceAll(/[\{\}\s]/g,''))));
+							target.find(':input').change();
+							$('[data-dd-timestamp]').change(function(){
+								__dt__update($(this));
+							}).change();
+						}
+					}
+				}
+			}
+		});
+		return false;
+	});
 	$('[data-dd-autoload]:not(:input,form)').each(function(){
 		const self=$(this);
 		const template=self.html();
@@ -169,7 +223,7 @@ $(function(){
 			$(this).html($(this).data('dd-autocontent')).removeAttr('data-dd-autocontent');
 		});
 		target.find(':input').change();
-		target.find('[data-dd-timestamp]').change(function(){
+		$('[data-dd-timestamp]').change(function(){
 			__dt__update($(this));
 		}).change();
 	}

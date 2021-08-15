@@ -220,12 +220,20 @@ $(function(){
 			eval(stm).forEach(function(obj){
 				if(offset>0) offset--;
 				else if(limit-->0){
-					html+=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,(s)=>eval('obj.'+s.replaceAll(/[\{\}\s]/g,'')));
+					html+=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,function(s){
+						const v=eval('obj.'+s.replaceAll(/[\{\}\s]/g,''));
+						if(v!==undefined) return v;
+						return '';
+					});
 				}
 			});
 		}
 		else{
-			html=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,(s)=>eval('json.'+s.replaceAll(/[\{\}\s]/g,'')));
+			html=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,function(s){
+				const v=eval('json.'+s.replaceAll(/[\{\}\s]/g,''));
+				if(v!==undefined) return v;
+				return '';
+			});
 		}
 		target.html(html);
 		target.find('[data-dd-autocontent]').each(function(){

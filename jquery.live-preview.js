@@ -156,11 +156,20 @@ $(function(){
 		});
 		return false;
 	});
+	function query(p){
+		let r=null;
+		window.location.search.substr(1).split('&').forEach(function(q){
+			const i=q.split('=');
+			if(i[0]==p&&i.length>1) r=i[1];
+		});
+		return r;
+	}
 	$('[data-dd-autoload]:not(:input,form)').each(function(){
 		const self=$(this);
+		const url_base=self.data('dd-autoload');
 		const template=self.html();
 		const loop=self.is('[data-dd-autoloop]')?self.data('dd-autoloop'):false;
-		$.getJSON(self.data('dd-autoload'),function(json){
+		$.getJSON(url_base.replaceAll(/\{\{[^\}]+\}\}/g,(s)=>eval(s.replaceAll(/[\{\}\s]/g,''))),function(json){
 			__auto__target__populate(json,self,template,loop);
 		});
 		self.removeAttr('data-dd-autoload').removeAttr('data-dd-autoloop').html('');

@@ -18,9 +18,11 @@ $(function(){
 						$(this).change();
 					}
 					else if(dic>=0&&lpa in dictionary[dic]&&dictionary[dic][lpa]!=null&&dictionary[dic][lpa].trim()!==''){
+						let txt=dictionary[dic][lpa];
+						if(lang=='no') txt=txt.replace(/(\w+)-(\w+)/g,'$1\u2011$2');
 						$(this).attr('lang',lang);
-						if($(this).is('input')) $(this).val(dictionary[dic][lpa]);
-						else $(this).text(dictionary[dic][lpa]);
+						if($(this).is('input')) $(this).val(txt);
+						else $(this).text(txt);
 						done=true;
 					}
 				});

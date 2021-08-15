@@ -5,7 +5,7 @@ $(function(){
 		_wq.push({id:vid,onReady:function(video){
 			video.bind('timechange',function(t){
 				$('[data-dd-wistiaid="'+vid+'"]').filter('[data-dd-activate]').each(function(){
-					const cls=$(this).is('[data-dd-activeclass]')?$(this).data('dd-activeclass'):'w--active';
+					const cls=$(this).is('[data-dd-activeclass]')?$(this).data('dd-activeclass'):'dd-active';
 					let ta=$(this).data('dd-activate');
 					if(typeof ta==='string'&&ta.includes(':')){
 						let k=1/60;

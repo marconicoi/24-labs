@@ -112,6 +112,7 @@ $(function(){
 		$(failMsg).hide();
 		$(errMsg).hide();
 		$(okMsg).hide();
+		form.removeClass('form-fail form-error form-success')
 		form.find(':input:enabled').addClass('__disabled').attr('disabled',true);
 		form.find('[type=submit],button:not([type])').prepend('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="12" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve" class="__loading"><path d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform></path></svg>');
 		$.ajax({
@@ -124,13 +125,23 @@ $(function(){
 				form.find('svg.__loading').remove();
 			},
 			error: function(xhr){
-				if(xhr.responseJSON[errObj]) $(errMsg).html(xhr.responseJSON[errObj]).show();
-				else $(failMsg).show();
+				if(xhr.responseJSON[errObj]){
+					$(errMsg).html(xhr.responseJSON[errObj]).show();
+					form.addClass('form-error');
+				}
+				else{
+					$(failMsg).show();
+					form.addClass('form-fail');
+				}
 			},
 			success: function(json){
-				if(json[errObj]) $(errMsg).html(json[errObj]).show();
+				if(json[errObj]){
+					$(errMsg).html(json[errObj]).show();
+					form.addClass('form-error');
+				}
 				else{
 					$(okMsg).show();
+					form.addClass('form-success');
 					form.find(':input[name]').each(function(){
 						const name=$(this).attr('name');
 						if(json[name]) $(this).val(json[name]).change();

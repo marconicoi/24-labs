@@ -53,13 +53,24 @@ $(function(){
 			$('[data-dd-hide="#'+$(this).attr('id')+'"]').show();
 		}
 	});
+	let els=$();
 	$('[data-dd-show]').each(function(){
-		if($($(this).data('dd-show')).is(':checked')) $(this).show();
+		let ctl=$($(this).data('dd-show'));
+		if(ctl.is(':checked,.dd-selected')) $(this).show();
 		else $(this).hide();
+		els=els.add(ctl);
 	});
 	$('[data-dd-hide]').each(function(){
-		if($($(this).data('dd-hide')).is(':checked')) $(this).hide();
+		let ctl=$($(this).data('dd-show'));
+		if(ctl.is(':checked,.dd-selected')) $(this).hide();
 		else $(this).show();
+		els=els.add(ctl);
+	});
+	$(els).click(function(){
+		$('.dd-selected').removeClass('dd-selected');
+		$(this).addClass('dd-selected');
+		$('[data-dd-show]').filter((i,el)=>$($(el).data('dd-show')).is($(this))).show();
+		$('[data-dd-hide]').filter((i,el)=>$($(el).data('dd-hide')).is($(this))).hide();
 	});
 	$('[data-dd-timestamp]').change(function(){
 		__dt__update($(this));

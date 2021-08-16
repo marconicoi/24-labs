@@ -12,25 +12,25 @@ $(function(){
 		}
 	}).change();
 	$('[data-dd-bindif]').each(function(){
-		if(eval($(this).data('dd-bindif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1'))){
+		if(eval($(this).data('dd-bindif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1').replaceAll("'localStorage.","'"))){
 			if($(this).is('[data-dd-bindhref]')) $(this).attr('href',$(this).data('dd-bindhref').replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,(s)=>eval('localStorage.'+s.replaceAll(/[\{\}\s]/g,''))));
 			if($(this).is('[data-dd-bindcontent]')) $(this).html($(this).data('dd-bindcontent'));
 		}
 	});
 	function __update_localstorage_elements(){
 		$('[data-dd-hideif]').each(function(){
-			if(eval($(this).data('dd-hideif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1'))) $(this).hide();
+			if(eval($(this).data('dd-hideif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1').replaceAll("'localStorage.","'"))) $(this).hide();
 			else $(this).show();
 		});
 		$('[data-dd-showif]').each(function(){
-			if(eval($(this).data('dd-showif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1'))) $(this).show();
+			if(eval($(this).data('dd-showif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1').replaceAll("'localStorage.","'"))) $(this).show();
 			else $(this).hide();
 		});
 		$('[data-dd-clickif]').each(function(){
-			if(eval($(this).data('dd-clickif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1'))) $(this).get(0).click();
+			if(eval($(this).data('dd-clickif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1').replaceAll("'localStorage.","'"))) $(this).get(0).click();
 		});
 		$('[data-dd-removeif]').each(function(){
-			if(eval($(this).data('dd-removeif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1'))) $(this).remove();
+			if(eval($(this).data('dd-removeif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1').replaceAll("'localStorage.","'"))) $(this).remove();
 		});
 	}
 	__update_localstorage_elements();

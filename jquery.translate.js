@@ -27,8 +27,11 @@ $(function(){
 					}
 				});
 				if(done) localStorage.setItem('dd__current_language',lang);
+
 			});
 			el.click().remove();
+			el=$('<input type="hidden" data-dd-storage="" />');
+			el.change().remove();
 			$('[data-dd-setlang='+current_lang+']').click();
 		});
 	}

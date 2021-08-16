@@ -29,6 +29,7 @@ $(function(){
 				if(done) localStorage.setItem('w--current-language',lang);
 			});
 			el.click().remove();
+			$('[data-dd-setlang='+current_lang+']').click();
 		});
 	}
 });

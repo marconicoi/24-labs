@@ -13,7 +13,7 @@ $(function(){
 	}).change();
 	$('[data-dd-bindif]').each(function(){
 		if(eval($(this).data('dd-bindif').replaceAll(/([a-zA-Z_][\w\._]*)/g,'localStorage.$1'))){
-			if($(this).is('[data-dd-bindhref]')) $(this).attr('href',$(this).data('dd-bindhref'));
+			if($(this).is('[data-dd-bindhref]')) $(this).attr('href',$(this).data('dd-bindhref').replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,(s)=>eval('localStorage.'+s.replaceAll(/[\{\}\s]/g,''))));
 			if($(this).is('[data-dd-bindcontent]')) $(this).html($(this).data('dd-bindcontent'));
 		}
 	});

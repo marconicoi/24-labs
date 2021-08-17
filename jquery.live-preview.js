@@ -248,8 +248,11 @@ $(function(){
 				if(offset>0) offset--;
 				else if(limit-->0){
 					html+=template.replaceAll(/\{\{\s*[\w\.\[\]]+\s*\}\}/g,function(s){
-						const v=eval('obj.'+s.replaceAll(/[\{\}\s]/g,''));
-						if(v!==undefined) return v;
+						try{
+							const v=eval('obj.'+s.replaceAll(/[\{\}\s]/g,''));
+							if(v!==undefined) return v;
+						}
+						finally{}
 						return '';
 					});
 				}
@@ -257,8 +260,11 @@ $(function(){
 		}
 		else{
 			html=template.replaceAll(/\{\{\s*[\w\.\[\]]+\s*\}\}/g,function(s){
-				const v=eval('json.'+s.replaceAll(/[\{\}\s]/g,''));
-				if(v!==undefined) return v;
+				try{
+					const v=eval('json.'+s.replaceAll(/[\{\}\s]/g,''));
+					if(v!==undefined) return v;
+				}
+				finally{}
 				return '';
 			});
 		}

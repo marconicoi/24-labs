@@ -7,7 +7,9 @@ $(function(){
 		__update_localstorage_elements();
 	});
 	$(document).on('click','a[data-dd-storage]',function(){
-		const value=$(this).is('[data-dd-storagevalue]')?$(this).data('dd-storagevalue'):$(this).attr('href');
+		let href=$(this).attr('href');
+		if(href.startsWith('/')) href=new URL(href,document.baseURI).href;
+		const value=$(this).is('[data-dd-storagevalue]')?$(this).data('dd-storagevalue'):href;
 		localStorage.setItem($(this).data('dd-storage'),value);
 		__update_localstorage_elements();
 	});

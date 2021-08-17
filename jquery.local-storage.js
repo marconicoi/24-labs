@@ -6,6 +6,11 @@ $(function(){
 		localStorage.setItem($(this).data('dd-storage'),$(this).val());
 		__update_localstorage_elements();
 	});
+	$(document).on('click','a[data-dd-storage]',function(){
+		const value=$(this).is('[data-dd-storagevalue]')?$(this).data('dd-storagevalue'):$(this).html();
+		localStorage.setItem($(this).data('dd-storage'),value);
+		__update_localstorage_elements();
+	});
 	$(':input[data-dd-storage]').each(function(){
 		if($(this).val()==''){
 			$(this).val(localStorage.getItem($(this).data('dd-storage')));

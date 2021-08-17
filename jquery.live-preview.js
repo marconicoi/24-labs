@@ -270,5 +270,6 @@ $(function(){
 		$('[data-dd-timestamp]').change(function(){
 			__dt__update($(this));
 		}).change();
+		target.find('.w-dyn-bind-empty:not(:empty)').removeClass('w-dyn-bind-empty');
 	}
 });

@@ -72,6 +72,9 @@ $(function(){
 		$('[data-dd-show]').filter((i,el)=>$($(el).data('dd-show')).is($(this))).show();
 		$('[data-dd-hide]').filter((i,el)=>$($(el).data('dd-hide')).is($(this))).hide();
 	});
+	$('[data-dd-visibleif]').change(function(){
+
+	});
 	$('[data-dd-timestamp]').change(function(){
 		__dt__update($(this));
 	}).change();
@@ -193,6 +196,8 @@ $(function(){
 		const loop=self.is('[data-dd-autoloop]')?self.data('dd-autoloop'):false;
 		$.getJSON(url_base.replaceAll(/\{\{[^\}]+\}\}/g,(s)=>eval(s.replaceAll(/[\{\}\s]/g,''))),function(json){
 			__auto__target__populate(json,self,template,loop);
+		}).fail(function(){
+			self.html(template);
 		});
 		self.removeAttr('data-dd-autoload').removeAttr('data-dd-autoloop').html('');
 	});

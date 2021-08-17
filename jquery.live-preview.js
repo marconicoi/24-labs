@@ -247,7 +247,7 @@ $(function(){
 			eval(stm).forEach(function(obj){
 				if(offset>0) offset--;
 				else if(limit-->0){
-					html+=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,function(s){
+					html+=template.replaceAll(/\{\{\s*[\w\.\[\]]+\s*\}\}/g,function(s){
 						const v=eval('obj.'+s.replaceAll(/[\{\}\s]/g,''));
 						if(v!==undefined) return v;
 						return '';
@@ -256,7 +256,7 @@ $(function(){
 			});
 		}
 		else{
-			html=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,function(s){
+			html=template.replaceAll(/\{\{\s*[\w\.\[\]]+\s*\}\}/g,function(s){
 				const v=eval('json.'+s.replaceAll(/[\{\}\s]/g,''));
 				if(v!==undefined) return v;
 				return '';

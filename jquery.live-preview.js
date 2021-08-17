@@ -122,6 +122,7 @@ $(function(){
 		const errMsg=form.data('dd-errmsg');
 		const okMsg=form.data('dd-okmsg');
 		const errObj=form.data('dd-errobj');
+		const redirect=form.data('dd-redirect');
 		const data=form.serialize();
 		$(failMsg).hide();
 		$(errMsg).hide();
@@ -176,6 +177,9 @@ $(function(){
 							}).change();
 						}
 					}
+				}
+				if(json[redirect]){
+					location.href=json[redirect];
 				}
 			}
 		});

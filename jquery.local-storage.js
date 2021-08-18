@@ -14,7 +14,7 @@ $(function(){
 		__update_localstorage_elements();
 	});
 	$(':input[data-dd-storage]').each(function(){
-		if($(this).val()==''){
+		if(!$(this).is('[value]')){
 			$(this).val(localStorage.getItem($(this).data('dd-storage')));
 		}
 	}).change();

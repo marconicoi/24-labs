@@ -135,6 +135,7 @@ $(function(){
 			url: form.attr('action'),
 			cache: false,
 			data: data,
+			dataTyoe: 'json',
 			complete: function(){
 				form.find('.__disabled').removeClass('__disabled').removeAttr('disabled');
 				form.find('svg.__loading').remove();

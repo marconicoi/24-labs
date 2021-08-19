@@ -1,6 +1,8 @@
 $(function(){
 	$(document).on('click','[data-dd-unstorage]',function(){
-		localStorage.removeItem($(this).data('dd-unstorage'));
+		$(this).data('dd-unstorage').split(',').forEach(function(i){
+			localStorage.removeItem($(this).data('dd-unstorage'));
+		});
 	});
 	$(document).on('change',':input[data-dd-storage]',function(){
 		localStorage.setItem($(this).data('dd-storage'),$(this).val());

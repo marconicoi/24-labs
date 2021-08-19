@@ -1,7 +1,7 @@
 $(function(){
 	$(document).on('click','[data-dd-unstorage]',function(){
-		$(this).data('dd-unstorage').split(',').forEach(function(i){
-			localStorage.removeItem($(this).data('dd-unstorage'));
+		new String($(this).data('dd-unstorage')).split(',').forEach(function(i){
+			localStorage.removeItem(i);
 		});
 	});
 	$(document).on('change',':input[data-dd-storage]',function(){

@@ -26,4 +26,9 @@ document.addEventListener('DOMContentLoaded',function(){
 			else this.innerHTML=this.innerHTML.substr(o);
 		}
 	});
+	document.querySelectorAll('[data-dd-regex]').forEach(function(el){
+		const r=new RegExp(this.getAttribute('data-dd-regex'));
+		if(this instanceof HTMLInputElement) this.value=this.value.replace(r,'$1');
+		else this.innerHTML=this.innerHTML.replace(r,'$1');
+	});
 });

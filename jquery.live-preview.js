@@ -1,5 +1,5 @@
 $(function(){
-	$(document).on('change keyup',':input',function() {
+	$(document).on('change keyup click',':input',function() {
 		let input=$(this);
 		$('[data-dd-bind*="#'+$(this).attr('id')+'"]').each(function(){
 			let self=$(this);

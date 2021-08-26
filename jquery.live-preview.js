@@ -40,8 +40,8 @@ $(function(){
 				if(v===undefined) v=e;
 				formula=formula.replace(e,v);
 			});
-			formula=eval(formula).toLocaleString();
-			self.width(formula);
+			formula=eval(formula);
+			self.css('width',formula+'%');
 		});
 	}).filter('[value!=""]').change();
 	$('input.autosize').focus(function(){

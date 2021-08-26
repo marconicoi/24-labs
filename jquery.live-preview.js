@@ -31,7 +31,24 @@ $(function(){
 			if(self.is(':input')) self.val(formula);
 			else self.html(formula);
 		});
+		$('[data-dd-wcalc*="#'+$(this).attr('id')+'"]').each(function(){
+			let self=$(this);
+			let formula=$(this).data('dd-wcalc');
+			let terms=formula.replaceAll(' ','').split(/[*+-/]/);
+			terms.forEach(function(e){
+				let v=$(e).val();
+				if(v===undefined) v=e;
+				formula=formula.replace(e,v);
+			});
+			formula=eval(formula).toLocaleString();
+			self.width(formula);
+		});
 	}).filter('[value!=""]').change();
+	$('input.autosize').focus(function(){
+		$(this).select();
+	}).keyup(function(){
+		this.style.width=this.value.length+'ch';
+	}).keyup();
 	$(document).on('click','[data-dd-onlyoneclass]',function(){
 		let cls=$(this).data('dd-onlyoneclass');
 		$('.'+cls).removeClass(cls);
@@ -141,8 +158,9 @@ $(function(){
 				form.find('svg.__loading').remove();
 			},
 			error: function(xhr){
-				if(xhr.responseJSON[errObj]){
-					$(errMsg).html(xhr.responseJSON[errObj]).show();
+				const json=xhr.responseJSON?xhr.responseJSON:JSON.parse(xhr.responseText);
+				if(json[errObj]){
+					$(errMsg).html(json[errObj]).show();
 					form.addClass('form-error');
 				}
 				else{

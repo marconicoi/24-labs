@@ -54,17 +54,38 @@ $(function(){
 			eval(stm).forEach(function(obj){
 				if(offset>0) offset--;
 				else if(limit-->0){
-					html+=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,(s)=>eval('obj.'+s.replaceAll(/[\{\}\s]/g,'')));
+					html+=template.replaceAll(/\{\{\s*[\w\.\[\]]+\s*\}\}/g,function(s){
+						try{
+							const v=eval('obj.'+s.replaceAll(/[\{\}\s]/g,''));
+							if(v!==undefined) return v;
+						}
+						finally{}
+						return '';
+					});
 				}
 			});
 		}
 		else{
-			html=template.replaceAll(/\{\{\s*[\w\.]+\s*\}\}/g,(s)=>eval('json.'+s.replaceAll(/[\{\}\s]/g,'')));
+			html=template.replaceAll(/\{\{\s*[\w\.\[\]]+\s*\}\}/g,function(s){
+				try{
+					const v=eval('json.'+s.replaceAll(/[\{\}\s]/g,''));
+					if(v!==undefined) return v;
+				}
+				finally{}
+				return '';
+			});
 		}
 		target.html(html);
 		target.find('[data-dd-autocontent]').each(function(){
-			$(this).html($(this).data('dd-autocontent')).removeAttr('data-dd-autocontent');
+			const v=$(this).data('dd-autocontent');
+			const p=v.match(/^@(\w+[\w-_]+):(.*)$/);
+			if(p) $(this).attr(p[1],p[2]);
+			else $(this).html(v).removeAttr('data-dd-autocontent');
 		});
-		target.find(':input,[data-dd-timestamp]').change();
+		target.find(':input').change();
+		$('[data-dd-timestamp]').change(function(){
+			__dt__update($(this));
+		}).change();
+		target.find('.w-dyn-bind-empty:not(:empty)').removeClass('w-dyn-bind-empty');
 	}
 });

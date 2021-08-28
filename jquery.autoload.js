@@ -38,7 +38,7 @@ $(function(){
 	});
 	function __auto__target__populate(json,target,template,loop){
 		let html='';
-		let stm=loop?'json.'+loop:false;
+        	let stm=loop===''?'json':(loop?'json.'+loop:false);
 		let offset=0;
 		let limit=1000;
 		if(loop&&loop.includes(':')){

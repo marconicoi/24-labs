@@ -34,7 +34,7 @@ $(function(){
 		$('[data-dd-wcalc*="#'+$(this).attr('id')+'"]').each(function(){
 			let self=$(this);
 			let formula=$(this).data('dd-wcalc');
-			let terms=formula.replaceAll(' ','').split(/[*+-/]/);
+			let terms=formula.replaceAll(' ','').split(/[*+-/.,()]/);
 			terms.forEach(function(e){
 				let v=$(e).val();
 				if(v===undefined) v=e;
@@ -293,7 +293,10 @@ $(function(){
 		}
 		target.html(html);
 		target.find('[data-dd-autocontent]').each(function(){
-			$(this).html($(this).data('dd-autocontent')).removeAttr('data-dd-autocontent');
+			const v=$(this).data('dd-autocontent');
+			const p=v.match(/^@(\w+[\w-_]+):(.*)$/);
+			if(p) $(this).attr(p[1],p[2]);
+			else $(this).html(v).removeAttr('data-dd-autocontent');
 		});
 		target.find(':input').change();
 		$('[data-dd-timestamp]').change(function(){

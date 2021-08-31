@@ -21,7 +21,7 @@ $(function(){
 		$('[data-dd-calc*="#'+$(this).attr('id')+'"]').each(function(){
 			let self=$(this);
 			let formula=$(this).data('dd-calc');
-			let terms=formula.replaceAll(' ','').split(/[*+-/]/);
+			let terms=formula.replaceAll(' ','').split(/[*+-/.,()]/);
 			terms.forEach(function(e){
 				let v=$(e).val();
 				if(v===undefined) v=e;

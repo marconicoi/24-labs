@@ -43,7 +43,8 @@ $(function(){
 			formula=eval(formula);
 			self.css('width',formula+'%');
 		});
-	}).filter('[value!=""]').change();
+	});
+	$(':input[value!=""]').change();
 	$('input.autosize').focus(function(){
 		$(this).select();
 	}).keyup(function(){

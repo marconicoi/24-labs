@@ -31,4 +31,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			});
 		}
 	});
+	document.querySelectorAll('.w-dyn-empty').forEach(function(el){
+		el.parentNode.removeChild(el);
+	});
 });

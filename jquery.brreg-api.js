@@ -1,5 +1,6 @@
 const public_suffix_list_url='https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat';
 const url_base_api='https://data.brreg.no/enhetsregisteret/api/enheter?';
+const url_base_api_2='https://companydb-api.24sevenoffice.com/companydb?filter=';
 const to_ignore=['google','gmail','hotmail','outlook','live','yahoo','aol','uol','bol','inbox','icloud','googlemail','free'];
 
 $(function(){
@@ -8,7 +9,7 @@ $(function(){
 	$(document).on('change','input[data-dd-company-request]',function(){
 		const v=$(this).val();
 		const r=$(this).data('dd-company-request');
-		const s=$(this).is('[data-dd-company-limit]')?$(this).data('dd-company-limit'):20;
+		const s=$(this).is('[data-dd-company-limit]')?$(this).data('dd-company-limit'):10;
 		let c=$(this).closest('form');
 		if(c.length==0) c=$('body');
 		$.get(public_suffix_list_url,function(list){
@@ -36,7 +37,9 @@ $(function(){
 							if(j!==undefined&&j._embedded!==undefined&&Array.isArray(j._embedded.enheter)){
 								if(j._embedded.enheter.length==1){
 									c.find('[data-dd-company-autocomplete],[data-dd-company-response]').each(function(){
-										const a=$(this).is('[data-dd-company-response]')?$(this).data('dd-company-response'):$(this).data('dd-company-autocomplete');
+										let a=$(this).is('[data-dd-company-response]')?$(this).data('dd-company-response'):$(this).data('dd-company-autocomplete');
+										if(a=='name') a='navn';
+										else if(a=='orgno') a='organisasjonsnummer';
 										const s=eval('j._embedded.enheter[0].'+a);
 										if(s!==undefined){
 											if($(this).is(':input')) $(this).val(s);
@@ -46,7 +49,11 @@ $(function(){
 								}
 								else{
 									c.find('[data-dd-company-autocomplete],[data-dd-company-response]').each(function(){
-										__brreg_response_list=j._embedded.enheter;
+										j._embedded.enheter.forEach(function(org){
+											if(__brreg_response_list.findIndex((el)=>el.number==org.organisasjonsnummer)==-1){
+												__brreg_response_list.push({number: org.organisasjonsnummer, name: org.navn, country: org.postadresse?.landkode, type: org.organisasjonsform?.kode});
+											}
+										});
 										if($(this).is(':input')) $(this).val('');
 										else $(this).html('');
 									});
@@ -63,12 +70,13 @@ $(function(){
 		});
 	});
 	$(document).on('focus','input[data-dd-company-autocomplete]',function(){
-		const template=$(this).is('[data-dd-company-template]')?$(this).data('dd-company-template'):'{{navn}}';
+		const template=$(this).is('[data-dd-company-template]')?$(this).data('dd-company-template'):'{{name}}';
 		let c=$(this).closest('form');
 		if(c.length==0) c=$('body');
 		$('.company-dropdown-list').remove();
 		if(__brreg_response_list.length>0){
 			let m=$('<ul class="company-dropdown-list"></ul>');
+			console.log(__brreg_response_list);
 			__brreg_response_list.forEach(function(o){
 				const t=template.replaceAll(/\{\{\s*\w+\s*\}\}/g,(s)=>eval('o.'+s.replaceAll(/[\{\}\s]/g,'')));
 				m.append('<li class="company-dropdown-item">'+t+'</li>');
@@ -80,8 +88,11 @@ $(function(){
 			$(this).before(m);
 			m.find('li').click(function(){
 				const obj=__brreg_response_list[$(this).index()];
+				console.log(obj);
 				c.find('[data-dd-company-autocomplete],[data-dd-company-response]').each(function(){
-					const a=$(this).is('[data-dd-company-response]')?$(this).data('dd-company-response'):$(this).data('dd-company-autocomplete');
+					let a=$(this).is('[data-dd-company-response]')?$(this).data('dd-company-response'):$(this).data('dd-company-autocomplete');
+					if(a=='navn') a='name';
+					else if(a=='organisasjonsnummer') a='orgno';
 					let s=eval('obj.'+a);
 					if(s===undefined) s='';
 					if($(this).is(':input')) $(this).val(s);
@@ -117,9 +128,24 @@ $(function(){
 			const v=new String($(this).val());
 			const s=$(this).is('[data-dd-company-limit]')?$(this).data('dd-company-limit'):10;
 			if(v.length>2){
+				__brreg_response_list=[];
 				$.getJSON(url_base_api+k+'='+v+'&size='+s,function(j){
 					if(j!==undefined&&j._embedded!==undefined&&Array.isArray(j._embedded.enheter)){
-						__brreg_response_list=j._embedded.enheter;
+						j._embedded.enheter.forEach(function(org){
+							if(__brreg_response_list.findIndex((el)=>el.number==org.organisasjonsnummer)==-1){
+								__brreg_response_list.push({number: org.organisasjonsnummer, name: org.navn, country: org.postadresse.landkode, type: org.organisasjonsform.kode});
+							}
+						});
+						self.trigger('focus');
+					}
+				});
+				$.getJSON(url_base_api_2+v,function(j){
+					if(j!==undefined&&j.company!==undefined&&Array.isArray(j.company)){
+						j.company.forEach(function(org){
+							if(__brreg_response_list.findIndex((el)=>el.number==org.orgno)==-1){
+								__brreg_response_list.push({number: org.orgno, name: org.name, country: org.country, type: org.type});
+							}
+						});
 						self.trigger('focus');
 					}
 				});
@@ -131,6 +157,6 @@ $(function(){
 		}
 	});
 	$(document).on('blur','input[data-dd-company-autocomplete]',function(){
-		setTimeout(()=>$('ul.company-dropdown-list').remove(),300);
+		setTimeout(()=>$('ul.company-dropdown-list').remove(),200);
 	});
 });

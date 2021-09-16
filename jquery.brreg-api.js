@@ -157,6 +157,6 @@ $(function(){
 		}
 	});
 	$(document).on('blur','input[data-dd-company-autocomplete]',function(){
-		setTimeout(()=>$('ul.company-dropdown-list').remove(),200);
+		setTimeout(()=>$('ul.company-dropdown-list').remove(),400);
 	});
 });

@@ -8,7 +8,7 @@
   "status": {
     "description": "Partial System Outage",
     "indicator": "major"
-  }
+  },
   "components": [
     {
       "created_at": "2014-05-03T01:22:07.274Z",
